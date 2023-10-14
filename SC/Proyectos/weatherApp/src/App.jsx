@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useFetch } from "./hooks/useFetch";
 
 const urlBase = "https://api.openweathermap.org/data/2.5/weather";
-const api_key = "2851609972668d6cfd0594a6d485d78f";
+const api_key = "APIkey";
 const difKelvin = 273.15;
 const lang = "es";
 
