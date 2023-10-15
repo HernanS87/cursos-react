@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useFetch } from "./hooks/useFetch";
 
 const URL_BASE = "https://api.themoviedb.org/3/search/movie";
-const API_KEY = "api...";
+const API_KEY = import.meta.env.VITE_MOVIE_API;
 
 export const MovieSearch = () => {
   const [busqueda, setBusqueda] = useState("");
@@ -13,7 +13,7 @@ export const MovieSearch = () => {
     setBusqueda(e.target.value);
   };
 
-  const { data, isLoading, errors } = useFetch(url);
+  const { data, isLoading } = useFetch(url);
 
   const handleSubmit = (e) => {
     e.preventDefault();
