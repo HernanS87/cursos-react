@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useFetch } from "./hooks/useFetch";
 
 const urlBase = "https://api.openweathermap.org/data/2.5/weather";
-const api_key = "APIkey";
+const api_key = import.meta.env.VITE_WEATHER_API;
 const difKelvin = 273.15;
 const lang = "es";
 

@@ -4,6 +4,7 @@ import { useFetch } from "./hooks/useFetch";
 
 const URL_BASE = "https://api.themoviedb.org/3/search/movie";
 const API_KEY = import.meta.env.VITE_MOVIE_API;
+console.log(API_KEY);
 
 export const MovieSearch = () => {
   const [busqueda, setBusqueda] = useState("");
