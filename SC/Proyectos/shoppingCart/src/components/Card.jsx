@@ -2,13 +2,15 @@ import { useState } from "react";
 import "../styles/card.css";
 
 // eslint-disable-next-line react/prop-types
-export const Card = ({ image, title, description, price }) => {
+export const Card = ({ image, title, description, price, addProduct, deleteProduct }) => {
   const [added, setAdded] = useState(false);
 
-  const clickAgregar = () => {
+  const clickAdd = () => {
+    addProduct();
     setAdded(true);
   };
-  const clickQuitar = () => {
+  const clickDelete = () => {
+    deleteProduct
     setAdded(false);
   };
 
@@ -21,14 +23,14 @@ export const Card = ({ image, title, description, price }) => {
         <p className="tarjeta-precio">{price}</p>
 
         {added ? (
-          <button type="button" className="boton-quitar" onClick={clickQuitar}>
+          <button type="button" className="boton-quitar" onClick={clickDelete}>
             Quitar del Carrito
           </button>
         ) : (
           <button
             type="button"
             className="boton-agregar"
-            onClick={clickAgregar}
+            onClick={clickAdd}
           >
             Agregar Carrito
           </button>
