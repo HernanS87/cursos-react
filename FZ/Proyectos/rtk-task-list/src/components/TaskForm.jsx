@@ -45,13 +45,14 @@ export const TaskForm = () => {
   }, [params, tasks]);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Task:</label>
+    <form onSubmit={handleSubmit} className="bg-zinc-800 max-w-sm p-4">
+      <label className="block text-sm font-bold">Task:</label>
       <input
         type="text"
         name="title"
         onChange={handleChange}
         value={task.title}
+        className="w-full p-2 rounded-md bg-zinc-600 mb-2"
         placeholder="Write a title"
         autoFocus
       />
@@ -62,10 +63,13 @@ export const TaskForm = () => {
           name="description"
           onChange={handleChange}
           value={task.description}
+          className="w-full p-2 rounded-md bg-zinc-600 mb-2"
           placeholder="Write a description"
         />
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit" className="bg-indigo-600 px-2 py-1">
+        Submit
+      </button>
     </form>
   );
 };
