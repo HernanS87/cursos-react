@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-export const TodoApp = () => {
+import { TaskList } from './components/TaskList';
 
-  type Tarea = {
-    tarea: string;
-    id?: string;
-  };
+export type Tarea = {
+  tarea: string;
+  id?: string;
+};
+
+export const TodoApp = () => {
 
   const initialState: Tarea = {
     tarea: "",
@@ -38,14 +40,7 @@ export const TodoApp = () => {
         />
       <button>Agregar</button>
       </form>
-      <div className="taskList">
-        {listaTareas.map((t) => (
-          <div className="task" key={t.id}>
-            <span>{t.tarea}</span>
-            <button onClick={() => handleDelete(t.id)}>Borrar</button>
-          </div>
-        ))}
-      </div>
+      <TaskList listaTareas={listaTareas} handleDelete={handleDelete}/>
     </div>
   );
 };
