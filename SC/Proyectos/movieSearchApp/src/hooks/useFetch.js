@@ -8,6 +8,7 @@ export const useFetch = (url) => {
   });
 
   const getFetch = async () => {
+    //falta poner isLoading en true y agregar el finally para pasarlo a false
     try {
       const response = await fetch(url);
       const data = await response.json();

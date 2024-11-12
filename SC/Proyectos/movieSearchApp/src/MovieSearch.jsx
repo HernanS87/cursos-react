@@ -1,6 +1,7 @@
 import "./styles/movieSearch.css";
 import { useState } from "react";
 import { useFetch } from "./hooks/useFetch";
+import { FaSearch } from "react-icons/fa";
 
 const URL_BASE = "https://api.themoviedb.org/3/search/movie";
 const API_KEY = import.meta.env.VITE_MOVIE_API;
@@ -18,7 +19,7 @@ export const MovieSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUrl(`${URL_BASE}?query=${busqueda}&api_key=${API_KEY}`);
+    setUrl(`${URL_BASE}?query=${busqueda}&language=es-ES&api_key=${API_KEY}`);
   };
 
   return (
@@ -27,18 +28,18 @@ export const MovieSearch = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Escribí una película"
+          placeholder="Buscar..."
           value={busqueda}
           onChange={handleInputChange}
         />
         <button type="submit" className="search-button">
-          Buscar
+          <FaSearch />
         </button>
       </form>
 
       <div className="movie-list">
         {isLoading && url ? (
-          <h3>Buscando...</h3>
+          <div className="spinner"></div>
         ) : (
           data &&
           data.map((film) => (
